@@ -1,4 +1,4 @@
-# Checkmate (Premium Room)
+# [Checkmate (Premium Room)](https://tryhackme.com/room/checkmate?vccr=1)
 **Platform**: TryHackMe\
 **Category**: Web Exploitation\
 **Difficulty**: Easy\

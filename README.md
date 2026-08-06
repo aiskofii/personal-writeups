@@ -4,4 +4,4 @@
 
 | Room | Category | Difficulty |
 | --- | --- | --- |
-| Checkmate | Web | Easy |
+| [Checkmate](./TryHackMe/checkmate.md) | Web | Easy |

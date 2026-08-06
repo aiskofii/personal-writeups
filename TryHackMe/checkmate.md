@@ -21,7 +21,9 @@ Each level gives a brief description _(or very vague hints, depending on how you
 ---
 
 ## Level 1
-The hint was given when it stated that Marco kept the default credentials and the placeholder indicated the username, `admin` and 5 characters password. ***Hydra** was first came to my mind as default credentials meant weak passwords. A dictionary attack did the favor. First things first, I submitted the wrong credentials while having inspect elements capturing the network (on the Network tab) and got the POST method.
+The hint was given when it stated that Marco kept the default credentials and the placeholder indicated the username, `admin` and 5 characters password. ***Hydra** was first came to my mind as default credentials meant weak passwords. A dictionary attack did the favor.
+
+First things first, I submitted the wrong credentials while having inspect elements capturing the network (on the Network tab) and got the POST method.
 
 ```bash
 hydra -l admin \
@@ -77,13 +79,16 @@ jobs.thm http-post-form \
 ---
 
 ## Level 3
-Once I got passed the `jobs.thm` login page, I was presented with Marco's personal details. I did some diggings (again) and found a Python script called ***CUPP*** (Common User Passwords Profiler) to create a custom wordlist based on someone's personal details, Marco, for example. Basically, this script will prompted first name, surname, nickname, birth date and some other options. Very straightforward script. All I had to do was:
+Once I got passed the `jobs.thm` login page, I was presented with Marco's personal details. I did some diggings (again) and found a Python script called ***CUPP*** (Common User Passwords Profiler) to create a custom wordlist based on someone's personal details, Marco, for example.
+
+Basically, this script will prompted first name, surname, nickname, birth date and some other options. Very straightforward script. All I had to do was:
 
 ```bash
 python3 cupp.py -i
 ```
 
-which will start up on interactive mode.\
+which will start up on interactive mode.
+
 Once the wordlist was ready, again I had to use Hydra. By this time, I already got the gist of it.
 
 ```bash
@@ -99,7 +104,8 @@ social.thm http-post-form \
 
 ## Level 4
 
-The description said it used SHA256 encryption for every profile picture uploaded. All I had to do was to decrypt it to find the answer.\ There are ways to do this. The first thing that came to my mind was to use ***John***\
+The description said it used SHA256 encryption for every profile picture uploaded. All I had to do was to decrypt it to find the answer.\ There are ways to do this. The first thing that came to my mind was to use ***John***
+
 First, I opened the picture into a new tab and got the hash (excluding the .png) from the search bar and creates a new .txt file.
 
 ```bash
@@ -120,7 +126,9 @@ john --wordlist=/usr/share/wordlists/rockyou.txt --format=Raw-SHA256 hash.txt
 
 ## Level 5
 
-Marco posted on `social.thm` on how he would have made a password as a suggestion. A company keyword. Capitalize it. Append the year 20XX. And with a cherry on top, an exclamation mark. This alone could help me build a custom wordlist by using ***Crunch***. By taking advantages on the tags in his post; Security, Excellence, Innovation, Digital, and Cloud:
+Marco posted on `social.thm` on how he would have made a password as a suggestion. A company keyword. Capitalize it. Append the year 20XX. And with a cherry on top, an exclamation mark. This alone could help me build a custom wordlist by using ***Crunch***.
+
+By taking advantages on the tags in his post; Security, Excellence, Innovation, Digital, and Cloud:
 
 ```bash
 crunch 13 13 0123456789! -t Security20%%! > passlist.txt; \

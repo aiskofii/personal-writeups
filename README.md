@@ -5,3 +5,8 @@
 | Room | Category | Difficulty | Date |
 | --- | --- | --- | --- |
 | [Checkmate (Premium Room)](./TryHackMe/checkmate.md) | Web | Easy | 6 Aug 2026 |
+
+## picoCTF
+
+| Challenge | Category | Difficulty |
+| -- | --- | --- |

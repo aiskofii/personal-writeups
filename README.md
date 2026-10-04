@@ -1,5 +1,7 @@
 # Personal Writeups
 
+This repository is intended to enhance my technical writing skills and acts as my learning curve throughout the challenges.
+
 ## TryHackMe
 
 | No. | Room | Category | Difficulty | Date |
